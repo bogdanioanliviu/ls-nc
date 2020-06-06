@@ -1,0 +1,18 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: pv-config
+  namespace: ls-nc
+  labels:
+    app: ls-nc
+    type: nfs
+spec:
+  storageClassName: proxmox-nfs-storage
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  capacity:
+    storage: 5Gi
+  nfs:
+    path: /mnt/knfs/nextcloud-config
+    server: 192.168.1.49

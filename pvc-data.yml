@@ -1,0 +1,15 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pvc-data
+  namespace: ls-nc
+  labels:
+    app: ls-nc
+    type: nfs
+spec:
+  storageClassName: proxmox-nfs-storage
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 200Gi
